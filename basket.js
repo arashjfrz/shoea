@@ -7,7 +7,7 @@ import {El} from './elmain.js'
 
 // fetch
 async function fetchData() {
-    const response = await fetch('');
+    const response = await fetch('http://localhost:5575/Products');
     const data = await response.json();
     return data;
 }

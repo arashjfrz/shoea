@@ -1,11 +1,9 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from '../../counter.js'
+
 import {El} from '../../elmain.js'
+import { router } from '../navigo.js'
 
 
-
+export function loading(){
 const container = El({
         element:"div",
         className:"flex flex-col items-center gap-10 justify-center h-screen bg-zinc-50 ",
@@ -26,9 +24,14 @@ const container = El({
                 element:"img",
                 src:"public/spinner-atom.png",
                 children:[],
-                className:"relative px-1 py-1 justify-center top-40 items-center bg-zinc-50",
+                className:"relative px-1 py-1 justify-center top-40 items-center bg-zinc-50 animate-spin",
                 })
         
         
         ]})
-        document.querySelector('#app').append(container)
+        setTimeout(() => {
+            router.navigate("/test2")
+            }, 3000);
+            console.log("arash2");
+        }
+        // export default container;
