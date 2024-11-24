@@ -1,78 +1,156 @@
 const API_URL = 'http://localhost:5575/Products';  
 import { El } from "../elmain";
-async function fetchProducts() {  
-    try {  
-        const response = await fetch(API_URL);  
-        if (!response.ok) {  
-            throw new Error('Network response was not ok: ' + response.statusText);  
-        }  
-        const data = await response.json();  
-        return data.products; // Adjust based on your API response structure  
-    } catch (error) {  
-        console.error('There has been a problem with your fetch operation:', error);  
-        return [];  
-    }  
-}  
+async function fetchProducts() {
 
-async function renderProducts(filter = '', sort = '') {  
+    try {
+
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+
+            throw new Error('Network response was not ok: ' + response.statusText);
+
+        }
+
+        const data = await response.json();
+
+        return data; // Adjust based on your API response structure  
+
+    } catch (error) {
+
+        console.error('There has been a problem with your fetch operation:', error);
+
+        return [];
+
+    }
+
+}
+
+    function renderProducts(filter = '', sort = '') {
+
+        const productList = El({
+    
+            element: 'main',
+    
+            className: 'product-list',
+    
+        }); 
 
     
 
-    const products = await fetchProducts();  
-    let filteredProducts = products;  
+        fetchProducts().then((data) => {
 
-    // Filtering  
-    if (filter) {  
-        filteredProducts = filteredProducts.filter(product =>  
-            product.name.toLowerCase().includes(filter.toLowerCase())  
-        );  
-    }  
-
-    // Sorting  
-    if (sort === 'price-asc') {  
-        filteredProducts.sort((a, b) => a.price - b.price);  
-    } else if (sort === 'price-desc') {  
-        filteredProducts.sort((a, b) => b.price - a.price);  
-    }  
-let listpro=[];
-    filteredProducts.forEach(product => {  
-        const productDiv = El({  
-            element: 'div',  
-            className: 'product',  
-            children: [  
-                El({  
-                    element: 'img',  
-                    restAttrs: {  
-                        src: product.image,  
-                        alt: product.name,  
-                    },  
-                    className: 'product-image',  
-                }),  
-                El({  
-                    element: 'h2',  
-                    children: [product.name],  
-                    className: 'product-name',  
-                }),  
-                El({  
-                    element: 'p',  
-                    children: [`$${product.price}`],  
-                    className: 'product-price',  
-                }),  
-                El({  
-                    element: 'button',  
-                    children: ['Add to Basket'],  
-                    eventListener: [{  
-                        event: 'click',  
-                        callback: () => addToBasket(product.id),  
-                    }],  
-                    className: 'add-to-basket-button',  
-                }),  
-            ],  
-        });  
-       listpro.push(productDiv);  
-    })
-    return listpro;
-}
+            const filteredProducts = data
+    
+            // Filtering  
+    
+            if (filter) {
+    
+                filteredProducts = filteredProducts.filter(product =>
+    
+                    product.name.toLowerCase().includes(filter.toLowerCase())
+    
+                );
+    
+            }
+    
+    
+    
+            // Sorting  
+    
+            if (sort === 'price-asc') {
+    
+                filteredProducts.sort((a, b) => a.price - b.price);
+    
+            } else if (sort === 'price-desc') {
+    
+                filteredProducts.sort((a, b) => b.price - a.price);
+    
+            }
+    
+            filteredProducts.forEach(product => {
+    
+                const productDiv = El({
+    
+                    element: 'div',
+    
+                    className: 'product',
+    
+                    children: [
+    
+                        El({
+    
+                            element: 'img',
+    
+                            restAttrs: {
+    
+                                src: product.image,
+    
+                                alt: product.name,
+    
+                            },
+    
+                            className: 'product-image',
+    
+                        }),
+    
+                        El({
+    
+                            element: 'h2',
+    
+                            children: [product.name],
+    
+                            className: 'product-name',
+    
+                        }),
+    
+                        El({
+    
+                            element: 'p',
+    
+                            children: [`$${product.price}`],
+    
+                            className: 'product-price',
+    
+                        }),
+    
+                        El({
+    
+                            element: 'button',
+    
+                            children: ['Add to Basket'],
+    
+                            eventListener: [{
+    
+                                event: 'click',
+    
+                                callback: () => addToBasket(product.id),
+    
+                            }],
+    
+                            className: 'add-to-basket-button',
+    
+                        }),
+    
+                    ],
+    
+                });
+    
+                console.log(productDiv)
+    
+                productList.append(productDiv)
+    
+            })
+    
+        });
+    
+        return productList
+    
+    
+    
+    
+    
+    }
 
  
 
