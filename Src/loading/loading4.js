@@ -26,5 +26,5 @@ El({
           })
     ]})
 
-    document.querySelector('#app').append(container)
+   
     export default container;

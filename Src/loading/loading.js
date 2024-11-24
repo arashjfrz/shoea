@@ -30,8 +30,10 @@ const container = El({
         
         ]})
         setTimeout(() => {
-            router.navigate("/test2")
+            router.navigate("/welcome")
             }, 3000);
             console.log("arash2");
+            return container;
         }
-        // export default container;
+        
+    

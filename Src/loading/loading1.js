@@ -1,5 +1,8 @@
 
+
+
 import {El} from '../../elmain.js'
+import { router } from '../navigo.js';
 
 export function Welcome(){
 const container = El({element:"div",
@@ -8,7 +11,7 @@ const container = El({element:"div",
         element:"img",
         src:"public/onboarding page 2.png",
         className:"absolute items-center justify-center h-screen bg-zinc-50 " })
-    ]})
+    ],eventListener:[{event:"click",callback:()=>router.navigate("/slideOne")}]
+})
+    return container;
 }
-// document.querySelector('#app').append(container)
-// export default container;

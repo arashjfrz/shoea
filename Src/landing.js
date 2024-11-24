@@ -1,5 +1,5 @@
 const API_URL = 'http://localhost:5575/Products';  
-
+import { El } from "../elmain";
 async function fetchProducts() {  
     try {  
         const response = await fetch(API_URL);  
@@ -15,8 +15,8 @@ async function fetchProducts() {
 }  
 
 async function renderProducts(filter = '', sort = '') {  
-    const productList = document.querySelector('.product-list');  
-    productList.innerHTML = '';  
+
+    
 
     const products = await fetchProducts();  
     let filteredProducts = products;  
@@ -34,7 +34,7 @@ async function renderProducts(filter = '', sort = '') {
     } else if (sort === 'price-desc') {  
         filteredProducts.sort((a, b) => b.price - a.price);  
     }  
-
+let listpro=[];
     filteredProducts.forEach(product => {  
         const productDiv = El({  
             element: 'div',  
@@ -69,9 +69,12 @@ async function renderProducts(filter = '', sort = '') {
                 }),  
             ],  
         });  
-        productList.appendChild(productDiv);  
-    });  
-}  
+       listpro.push(productDiv);  
+    })
+    return listpro;
+}
+
+ 
 
 const basket = [];  
 

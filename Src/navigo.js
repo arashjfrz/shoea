@@ -30,7 +30,7 @@ root.append(res);
 
 router
 .on("/", ()=> {
-changePages(landingoading);
+changePages(loading);
 })
 .on("/welcome", ()=>{
 changePages(Welcome);
@@ -38,18 +38,17 @@ changePages(Welcome);
 .on("/slideOne", ()=>{
 changePages(loading2);
 })
-.on("/slideTwo", ()=>{
-changePages(loading3);
-})
-.on("/slideThree", ()=>{
-changePages(loading4);
-})
-// .on("/login", ()=>{
-// changePages(Login);
+// .on("/slideTwo", ()=>{
+// changePages(loading3);
 // })
+// .on("/slideThree", ()=>{
+// changePages(loading4);
+// })
+// // .on("/login", ()=>{
+// // changePages(Login);
+// // })
 .on("/home", ()=>{
 changePages(landing);
-changePages2(home);
 })
 
 
