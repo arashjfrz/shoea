@@ -22,8 +22,11 @@ El({
             element:"button",
             children:["Next"],
             className:"relative items-center text-zinc-50 justify-center border-none rounded-3xl bg-zinc-600 px-20 py-2"
+            ,eventListener:[{event:"click",callback:()=>router.navigate("/slideOne")}]
           })
+           
     ]})
     return container;
 }
+
     export default container;
