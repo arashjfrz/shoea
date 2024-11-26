@@ -1,13 +1,11 @@
 import Navigo from "navigo";
 import {loading} from "./loading/loading";
 import {Welcome} from "./loading/loading1";
-import loading2 from "./loading/loading2";
+import jay from "./loading/loading2";
 import loading3 from "./loading/loading3";
 import loading4 from "./loading/loading4";
-import  landing  from "./landing";
 import Login from "./login";
-import jay from "./loading/loading2";
-
+import { renderProducts } from "./landing";
 export const router = new Navigo("/");
 
 export const changePages = (target) => {
@@ -39,7 +37,7 @@ changePages(Welcome);
 changePages(jay);
 })
 .on("/slideTwo", ()=>{
-changePages();
+changePages(loading3);
 })
 .on("/slideThree", ()=>{
 changePages(loading4);
@@ -48,7 +46,7 @@ changePages(loading4);
 changePages(Login);
 })
 .on("/home", ()=>{
-changePages(landing);
+changePages(renderProducts);
 })
 
 

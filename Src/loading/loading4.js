@@ -1,6 +1,6 @@
 
 import {El} from '../../elmain.js'
-
+import { router } from '../navigo.js';
 
 function jaythree(){
 const container = 
@@ -23,10 +23,10 @@ El({
             element:"button",
             children:["Get Started"],
             className:"relative items-center text-zinc-50 justify-center border-none rounded-3xl bg-zinc-600 px-20 py-2"
-            ,eventListener:[{event:"click",callback:()=>router.navigate("/slideOne")}]
+            ,eventListener:[{event:"click",callback:()=>router.navigate("/login")}]
           })
     ]})
     return container;
 }
    
-    export default container;
+    export default jaythree;

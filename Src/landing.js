@@ -40,7 +40,7 @@ async function fetchProducts() {
 
         fetchProducts().then((data) => {
 
-            const filteredProducts = data
+            let filteredProducts = data
     
             // Filtering  
     
@@ -48,7 +48,7 @@ async function fetchProducts() {
     
                 filteredProducts = filteredProducts.filter(product =>
     
-                    product.name.toLowerCase().includes(filter.toLowerCase())
+                    product.brand.toLowerCase().includes(filter.toLowerCase())
     
                 );
     
@@ -74,7 +74,7 @@ async function fetchProducts() {
     
                     element: 'div',
     
-                    className: 'product',
+                    className: 'product',//
     
                     children: [
     
@@ -82,13 +82,13 @@ async function fetchProducts() {
     
                             element: 'img',
     
-                            restAttrs: {
+                            
     
-                                src: product.image,
+                                src: product.images,
     
-                                alt: product.name,
+                                alt: product.brand,
     
-                            },
+                            
     
                             className: 'product-image',
     
@@ -98,7 +98,7 @@ async function fetchProducts() {
     
                             element: 'h2',
     
-                            children: [product.name],
+                            children: [product.brand],
     
                             className: 'product-name',
     
@@ -160,9 +160,9 @@ function addToBasket(productId) {
     const product = products.find(p => p.id === productId);  
     if (!basket.includes(product)) {  
         basket.push(product);  
-        alert(`${product.name} added to basket!`);  
+        alert(`${product.brand} added to basket!`);  
     } else {  
-        alert(`${product.name} is already in your basket.`);  
+        alert(`${product.brand} is already in your basket.`);  
     }  
 }  
 
@@ -239,4 +239,4 @@ const footer = El({
 });  
 
 
-export default renderProducts;
+export {renderProducts} ;
