@@ -44,6 +44,7 @@ function Login(){
             }),El({
               element:"span",
               children:["Remember me?"]
+             
             })]
           })
           ,El({
@@ -54,19 +55,21 @@ function Login(){
           })
                    ]})
                   ]})
- 
                   function onclick(){
                  
                     const email = document.getElementById('username').value;  
                     const password = document.getElementById('password').value;  
-
+    
           
                     localStorage.setItem('email', email);  
                     localStorage.setItem('password', password);  
-
+    
                    
                     alert(' saved!'); 
+                    
                    }
+                  
+                   
 
                 }
   
