@@ -5,7 +5,7 @@ console.log("arash");
 function Login(){
     return El({
     element:"div",
-    className:"flex flex-col items-center gap-10 justify-center h-screen bg-zinc-50 ",
+    className:"flex flex-col items-center gap-10 justify-center h-screen w-auto bg-zinc-50 ",
     children:[
       El({
       element: "img",
@@ -51,7 +51,7 @@ function Login(){
             element:"button",
             children:["Sign in"],
             className:"relative items-center text-zinc-50 justify-center border-none rounded-3xl bg-zinc-600 px-20 py-2"
-            ,eventListener:[{event:"click",callback:()=>router.navigate("/home")}]
+            ,eventListener:[{event:"click",callback:()=>onclick()}]
           })
                    ]})
                   ]})
@@ -66,6 +66,7 @@ function Login(){
     
                    
                     alert(' saved!'); 
+                    router.navigate("/home")
                     
                    }
                   

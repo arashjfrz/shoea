@@ -1,5 +1,6 @@
 import { El } from "./elmain";
-import { router } from "./src/navigo";
+import { router } from "./navigo.js";
+import '../style.css';
 // Main Product Detail Function  
 function createProductDetailPage(product) {  
     const container = El({  
@@ -13,8 +14,8 @@ function createProductDetailPage(product) {
                 children: [  
                     El({  
                         element: 'img',  
-                        src: product.image,  
-                        alt: product.name,  
+                        src: product.images,  
+                        alt: product.brand,  
                         className: 'w-full h-60 object-cover',  
                     }),  
                     El({  
@@ -32,7 +33,7 @@ function createProductDetailPage(product) {
                     El({  
                         element: 'h1',  
                         className: 'text-xl font-bold',  
-                        children: [product.name],  
+                        children: [product.brand],  
                     }),  
                     El({  
                         element: 'div',  
@@ -182,3 +183,4 @@ const productData = {
 
 // Initialize the Product Detail Page  
 createProductDetailPage(productData);
+export default createProductDetailPage();

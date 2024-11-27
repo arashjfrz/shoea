@@ -26,95 +26,135 @@ async function fetchProducts() {
 
 }
 
-const headerContainer = El({  
-    element: 'div',  
-    className: 'bg-white shadow-md p-4 flex flex-col items-center',  
-    children: [  
-         
-        El({  
-            element: 'div',  
-            className: 'flex items-center mb-4',  
-            children: [  
-                El({  
-                    element: 'div',  
-                    className: 'w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold mr-3',  
-                    children: ['A'],  
-                }),  
-                El({  
-                    element: 'span',  
-                    className: 'text-lg font-semibold',  
-                    children: [' Arash Jaafari'], 
-                }),  
-            ],  
-        }),          
+const headerContainer = El({
+    element: 'div',
+    className: 'bg-white shadow-md p-4 absolute top-0 right-0 left-0 w-full mx-auto',
+    children: [
+
+        El({
+            element: 'div',
+            className: 'mx-auto mb-4 flex items-center justify-center w-96',
+            children: [
+                El({
+                    element: 'div',
+                    className: 'w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold mr-3',
+                    children: ['A'],
+                }),
+                El({
+                    element: 'span',
+                    className: 'text-lg font-semibold',
+                    children: [' Arash Jaafari'],
+                }),
+            ],
+        }),
 
         // Search bar section  
+        El({
+            element: 'div',
+            className: 'flex items-center w-full',
+            children: [
+                El({
+                    element: 'input',
+                    className: 'flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',
+                    placeholder: 'Search for brands...',
+                    type: 'text',
+                    eventListener: [{
+                        event: 'input',
+                        callback: (e) => {
+                            console.log('Searching for:', e.target.value); // Your search logic here  
+                        }
+                    }]
+                }),
+                El({
+                    element: 'button',
+                    className: 'bg-blue-500 text-white px-4 py-2 rounded-lg ml-2 hover:bg-blue-600 transition',
+                    children: ['Search'],
+                    eventListener: [{
+                        event: 'click',
+                        callback: () => {
+                            console.log('Search button clicked');
+                        }
+                    }]
+                }),
+            ],
+        }),
+
         El({  
             element: 'div',  
-            className: 'flex items-center w-full',  
+            className: 'grid grid-cols-4 gap-1  overflow-auto justify-center items-center',  
             children: [  
-                El({  
-                    element: 'input',  
-                    className: 'flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500',  
-                    placeholder: 'Search for brands...',  
-                    type: 'text',  
-                    eventListener: [{  
-                        event: 'input',  
-                        callback: (e) => {  
-                            console.log('Searching for:', e.target.value); // Your search logic here  
-                        }  
-                    }]  
-                }),  
-                El({  
-                    element: 'button',  
-                    className: 'bg-blue-500 text-white px-4 py-2 rounded-lg ml-2 hover:bg-blue-600 transition',  
-                    children: ['Search'],  
-                    eventListener: [{  
-                        event: 'click',  
-                        callback: () => {  
-                            console.log('Search button clicked');  
-                        }  
-                    }]  
-                }),  
+                El({ element: 'button', className: 'flex flex-col items-center text-gray-600 hover:text-blue-500', children: [  
+                    El({ element: 'div', className: 'border-none px-2 py-2 rounded-full', children: [  
+                        El({ element: 'img', className: 'bg-gray-200 rounded-full w-10 h-10 p-2', src: "public/image 1.png" }), // Nike logo  
+                        El({ element: 'span', className: '', children: ["Nike"] }),  
+                    ]}),  
+                ]}),  
+                El({ element: 'button', className: 'flex flex-col items-center text-gray-600 hover:text-blue-500', children: [  
+                    El({ element: 'div', className: 'border-none px-1 py-1 rounded-full', children: [  
+                        El({ element: 'img', className: 'bg-gray-200 rounded-full w-10 h-10 p-2', src: "public/image 1 (1).png" }), // Adidas logo  
+                        El({ element: 'span', className: '', children: ["Adidas"] }),  
+                    ]}),  
+                ]}),  
+                El({ element: 'button', className: 'flex flex-col items-center text-gray-600 hover:text-blue-500', children: [  
+                    El({ element: 'div', className: 'border-none px-1 py-1 rounded-full', children: [  
+                        El({ element: 'img', className: 'bg-gray-200 rounded-full w-10 h-10 p-2', src: "public/image 1 (2).png" }), // Puma logo  
+                        El({ element: 'span', className: '', children: ["Puma"] }),  
+                    ]}),  
+                ]}),  
+                El({ element: 'button', className: 'flex flex-col items-center text-gray-600 hover:text-blue-500', children: [  
+                    El({ element: 'div', className: 'border-none px-1 py-1 rounded-full', children: [  
+                        El({ element: 'img', className: 'bg-gray-200 rounded-full w-10 h-10 p-2', src: "public/image 1 (3).png" }), // Asics logo  
+                        El({ element: 'span', className: '', children: ["Asics"] }),  
+                    ]}),  
+                ]}),  
+                El({ element: 'button', className: 'flex flex-col items-center text-gray-600 hover:text-blue-500', children: [  
+                    El({ element: 'div', className: 'border-none px-1 py-1 rounded-full', children: [  
+                        El({ element: 'img', className: 'bg-gray-200 rounded-full w-10 h-10 p-2', src: "public/image 1 (4).png" }), // Reebok logo  
+                        El({ element: 'span', className: '', children: ["Reebok"] }),  
+                    ]}),  
+                ]}),  
+                El({ element: 'button', className: 'flex flex-col items-center text-gray-600 hover:text-blue-500', children: [  
+                    El({ element: 'div', className: 'border-none px-1 py-1 rounded-full', children: [  
+                        El({ element: 'img', className: 'bg-gray-200 rounded-full w-10 h-10 p-2', src: "public/image 1 (5).png" }), // New Balance logo  
+                        El({ element: 'span', className: '', children: ["New Ba.."] }),  
+                    ]}),  
+                ]}),  
+                El({ element: 'button', className: 'flex flex-col items-center text-gray-600 hover:text-blue-500', children: [  
+                    El({ element: 'div', className: 'border-none px-1 py-1 rounded-full', children: [  
+                        El({ element: 'img', className: 'bg-gray-200 rounded-full w-10 h-10 p-2', src: "public/image 1 (6).png" }), // Converse logo  
+                        El({ element: 'span', className: '', children: ["Converse"] }),  
+                    ]}),  
+                ]}),  
+                El({ element: 'button', className: 'flex flex-col items-center text-gray-600 hover:text-blue-500', children: [  
+                    El({ element: 'div', className: 'border-none px-1 py-1 rounded-full', children: [  
+                        El({ element: 'img', className: 'bg-gray-200 rounded-full w-10 h-10 p-2', src: "public/image 1 (7).png" }), // More logo  
+                        El({ element: 'span', className: '', children: ["More..."] }),  
+                    ]}),  
+                ]}),  
             ],  
+        }),
+        // Most Popular Section  
+        El({  
+            element: 'h2',  
+            className: 'mt-4 font-semibold text-lg',  
+            children: ['Most Popular'],  
         }),  
-    ],  
-});  
-El({  
-    element: 'div',  
-    className: 'flex space-x-4 overflow-auto w-full',  
-    children: [  
-        El({ element: 'button', className: 'text-gray-600 hover:text-blue-500', children: ['Nike'] }),  
-        El({ element: 'button', className: 'text-gray-600 hover:text-blue-500', children: ['Adidas'] }),  
-        El({ element: 'button', className: 'text-gray-600 hover:text-blue-500', children: ['Puma'] }),  
-        El({ element: 'button', className: 'text-gray-600 hover:text-blue-500', children: ['Asics'] }),  
-        El({ element: 'button', className: 'text-gray-600 hover:text-blue-500', children: ['Reebok'] }),  
-        El({ element: 'button', className: 'text-gray-600 hover:text-blue-500', children: ['New Balance'] }),  
-        El({ element: 'button', className: 'text-gray-600 hover:text-blue-500', children: ['Converse'] }),  
-        El({ element: 'button', className: 'text-gray-600 hover:text-blue-500', children: ['More...'] }),  
-    ],  
-}),  
-
-// Most Popular Section  
-El({  
-    element: 'h2',  
-    className: 'mt-4 font-semibold text-lg',  
-    children: ['Most Popular'],  
-}),  
-
-// Popular Brands  
-El({  
-    element: 'div',  
-    className: 'flex space-x-2 mt-2',  
-    children: [  
-        El({ element: 'button', className: 'border p-2 rounded-lg', children: ['All'] }),  
-        El({ element: 'button', className: 'border p-2 rounded-lg', children: ['Nike'] }),  
-        El({ element: 'button', className: 'border p-2 rounded-lg', children: ['Adidas'] }),  
-        El({ element: 'button', className: 'border p-2 rounded-lg', children: ['Puma'] }),  
-        El({ element: 'button', className: 'border p-2 rounded-lg', children: ['Asics'] }),  
-    ],  
-}),  
- 
+        
+        // Popular Brands  
+        El({  
+            element: 'div',  
+            className: 'flex space-x-2 mt-2',  
+            children: [  
+                El({ element: 'div', className: 'border p-2 rounded-lg', children: [  
+                    El({ element: 'img', className: 'w-6', src: "" }),  
+                    El({ element: 'a', className: '', href: "", children: "all" }),  
+                ]}),  
+                El({ element: 'button', className: 'border p-2 rounded-lg', children: ['Nike'] }),  
+                El({ element: 'button', className: 'border p-2 rounded-lg', children: ['Adidas'] }),  
+                El({ element: 'button', className: 'border p-2 rounded-lg', children: ['Puma'] }),  
+                El({ element: 'button', className: 'border p-2 rounded-lg', children: ['Asics'] }),  
+            ],  
+        })]})
 
 
 // Append the header container to the body or main app element  
@@ -308,31 +348,34 @@ const header = El({
     ],  
 });  
 
-// Create Product List  
-const productList = El({  
-    element: 'main',  
-    className: 'product-list',  
-});  
 
 // Create Footer  
 const footer = El({  
-    element: 'footer',  
-    className: 'flex justify-center p-4 bg-gray-200',  
+    element: 'div',  
+    className: 'flex justify-around items-center bg-gray-100 p-2 fixed bottom-0 w-full', // Make it fixed to the bottom  
     children: [  
-        El({  
-            element: 'button',  
-            children: ['View Basket'],  
-            eventListener: [  
-                {  
-                    event: 'click',  
-                    callback: () => {  
-                        alert('Viewing basket: ' + basket.map(p => p.name).join(', '));  
-                    },  
-                },  
-            ],  
-        }),  
+        El({ element: 'div', className: 'flex flex-col items-center', children: [  
+            El({ element: 'img', className: 'w-6 h-6', src: "public/house-door-fill.png", alt: "Home" }),  
+            El({ element: 'span', className: 'text-sm', children: ["Home"] }),  
+        ]}),  
+        El({ element: 'div', className: 'flex flex-col items-center', children: [  
+            El({ element: 'img', className: 'w-6 h-6', src: "public/cart2.png", alt: "Cart" }),  
+            El({ element: 'span', className: 'text-sm', children: ["Cart"] }),  
+        ]}),  
+        El({ element: 'div', className: 'flex flex-col items-center', children: [  
+            El({ element: 'img', className: 'w-6 h-6', src: "public/bag.png", alt: "Orders" }),  
+            El({ element: 'span', className: 'text-sm', children: ["Orders"] }),  
+        ]}),  
+        El({ element: 'div', className: 'flex flex-col items-center', children: [  
+            El({ element: 'img', className: 'w-6 h-6', src: "public/wallet2.png", alt: "Wallet" }),  
+            El({ element: 'span', className: 'text-sm', children: ["Wallet"] }),  
+        ]}),  
+        El({ element: 'div', className: 'flex flex-col items-center', children: [  
+            El({ element: 'img', className: 'w-6 h-6', src: "public/person.png", alt: "Profile" }),  
+            El({ element: 'span', className: 'text-sm', children: ["Profile"] }),  
+        ]}),  
     ],  
-});  
-
+});
+document.body.appendChild(footer);
 
 export {renderProducts} ;

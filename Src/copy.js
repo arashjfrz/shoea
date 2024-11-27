@@ -52,3 +52,25 @@ filteredProducts.forEach(product => {
    listpro.push(productDiv);  
 })
 return listpro;
+
+const headerContainer = El({  
+    element: 'div',  
+    className: 'bg-white shadow-md p-4 flex flex-col items-center',  
+    children: [  
+         
+        El({  
+            element: 'div',  
+            className: 'flex items-center mb-4',  
+            children: [  
+                El({  
+                    element: 'div',  
+                    className: 'w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold mr-3',  
+                    children: ['A'],  
+                }),  
+                El({  
+                    element: 'span',  
+                    className: 'text-lg font-semibold',  
+                    children: [' Arash Jaafari'], 
+                }),  
+            ],  
+        })]})
